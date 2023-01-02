@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 import MoviesList from './components/MoviesList';
 import './App.css';
+import AddMovie from "./components/AddMovie";
 
 function App() {
     const [movies,setMovies] = useState([]);
@@ -33,9 +34,15 @@ function App() {
      }
      setIsloading(false)//am ende soll nicht mehr geloadtet werden egal ob fetch erfolgreich ode rnicht
  }
+ function addMovieHandler(movie) {
+     console.log(movie)
+ }
 
   return (
     <React.Fragment>
+        <section>
+            <AddMovie onAddMovie={addMovieHandler} />
+        </section>
       <section>
         <button onClick={fetchMovie}>Fetch Movies</button>
       </section>
